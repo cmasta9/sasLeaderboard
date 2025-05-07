@@ -9,5 +9,8 @@
   "private": true,
   "devDependencies": {
     "@types/bun": "latest"
+  },
+  "scripts": {
+    "start": "bun run index.js"
   }
 }
