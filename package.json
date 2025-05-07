@@ -4,13 +4,13 @@
     "bun-vercel": "^1.0.0-alpha.5"
   },
   "name": "scoreboardapi",
-  "module": "index.js",
+  "module": "index.ts",
   "type": "module",
   "private": true,
   "devDependencies": {
     "@types/bun": "latest"
   },
   "scripts": {
-    "start": "bun run index.js"
+    "start": "bun run index.ts"
   }
 }
