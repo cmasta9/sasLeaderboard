@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>High Score Form</title>
+        <link href="style.css" rel="stylesheet">
+    </head>
+    <body>
+        <form action="/submit" id="form" method="post">
+            <label for="name">Username:</label><br>
+            <input type="text" name="name" placeholder="username">
+            <br>
+            <label for="score">Score:</label><br>
+            <input type="text" name="score" placeholder="score">
+            <br>
+            <label for="address">Address:</label><br>
+            <input type="text" name="address" placeholder="address">
+            <br>
+            <label for="secwet">Secwet:</label><br>
+            <input type="text" name="secwet" placeholder="secwet">
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <br>
+        <div>
+            <p id="statuser">submit status</p>
+        </div>
+        <br>
+        <div>
+            <p id="getUser">User</p>
+            <br>
+            <button id="getButt">Get user</button>
+        </div>
+        <br>
+        <div>
+            <p id="getHigh">High</p>
+            <br>
+            <button id="highButt">Get high</button>
+        </div>
+
+        <script>
+            const form = document.getElementById('form');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const dater = new FormData(e.target);
+                const time = Date.now();
+                //const check = `${dater.get('name')}${dater.get('score')}${Math.floor(time/19)}`;
+
+                const jason = {
+                    'name': dater.get('name'),
+                    'score': dater.get('score'),
+                    'address': dater.get('address'),
+                    'secwet': dater.get('secwet'),
+                }
+                const resp = await fetch('/submit',{
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(jason),
+                });
+                const stat = await resp.text();
+                document.getElementById('statuser').innerText = stat;
+            });
+
+            userButt = document.getElementById('getButt');
+            userButt.addEventListener('click', async () =>{
+                const userName = new FormData(form).get('name');
+                jason = {
+                    'name': userName,
+                }
+                if(userName){
+                    const resp = await fetch('/getUser',{
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify(jason),
+                    });
+                    const uz = await resp.json();
+                    document.getElementById('getUser').innerText = JSON.stringify(uz);
+                }else{
+                    document.getElementById('getUser').innerText = 'query a user';
+                }
+            });
+            highButt = document.getElementById('highButt');
+            highButt.addEventListener('click', async () =>{
+                const resp = await fetch('/getHigh',{
+                        method: 'GET',
+                    });
+                    const jason = await resp.json();
+                    document.getElementById('getHigh').innerText = JSON.stringify(jason);
+            });
+        </script>
+    </body>
+</html>
