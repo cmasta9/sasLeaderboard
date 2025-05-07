@@ -1,20 +1,13 @@
 {
   "dependencies": {
-    "@types/bun": "^1.2.11",
     "bun": "^1.2.11",
     "bun-vercel": "^1.0.0-alpha.5"
   },
   "name": "scoreboardapi",
-  "module": "index.ts",
+  "module": "index.js",
   "type": "module",
   "private": true,
   "devDependencies": {
     "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "scripts": {
-    "build": "bun-vercel ./index.ts"
   }
 }
