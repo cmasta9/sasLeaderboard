@@ -15,8 +15,8 @@
             <label for="address">Address:</label><br>
             <input type="text" name="address" placeholder="address">
             <br>
-            <label for="secwet">Secwet:</label><br>
-            <input type="text" name="secwet" placeholder="secwet">
+            <label for="seecwet">Seecwet:</label><br>
+            <input type="text" name="seecwet" placeholder="seecwet">
             <br>
             <input type="submit" value="Submit">
         </form>
@@ -50,7 +50,7 @@
                     'name': dater.get('name'),
                     'score': dater.get('score'),
                     'address': dater.get('address'),
-                    'secwet': dater.get('secwet'),
+                    'seecwet': dater.get('seecwet'),
                 }
                 const resp = await fetch('/submit',{
                     method: 'POST',

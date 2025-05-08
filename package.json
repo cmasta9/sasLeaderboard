@@ -1,16 +1,24 @@
 {
-  "dependencies": {
-    "bun": "^1.2.11",
-    "bun-vercel": "^1.0.0-alpha.5"
-  },
-  "name": "scoreboardapi",
-  "module": "index.ts",
-  "type": "module",
+  "name": "sas-scoreboard-api",
+  "module": "index.js",
   "private": true,
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
   "scripts": {
-    "start": "bun run index.ts"
-  }
+    "start": "node index.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "better-sqlite3": "^11.9.1",
+    "dotenv": "^16.5.0",
+    "http": "^0.0.1-security"
+  },
+  "version": "0.1.0",
+  "description": "scoreboard API",
+  "main": "index.js",
+  "keywords": [
+    "api",
+    "leaderboard",
+    "highscore"
+  ],
+  "author": "c.masta",
+  "license": "Be Good License"
 }
