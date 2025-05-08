@@ -1,0 +1,29 @@
+{
+  "name": "sas-scoreboard-api",
+  "module": "index.ts",
+  "private": true,
+  "scripts": {
+    "start": "bun run index.ts"
+  },
+  "type": "module",
+  "version": "0.1.0",
+  "description": "scoreboard API",
+  "main": "index.ts",
+  "keywords": [
+    "api",
+    "leaderboard",
+    "highscore"
+  ],
+  "author": "c.masta",
+  "license": "Be Good License",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "bun": "^1.2.12"
+  }
+}
